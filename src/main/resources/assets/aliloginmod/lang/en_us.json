@@ -1,0 +1,6 @@
+{
+  "aliloginmod.login.required": "You must login to interact with the world!",
+  "aliloginmod.register.required": "You must register first! Use /register <password>",
+  "aliloginmod.login.success": "Login successful!",
+  "aliloginmod.register.success": "Registration successful!"
+}

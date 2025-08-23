@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+serverSideOnly=true
+issueTrackerURL="https://github.com/aliloginmod/issues"
+
+[[mods]]
+modId="aliloginmod"
+version="${file.jarVersion}"
+displayName="AliLoginMod"
+updateJSONURL="https://example.com/update.json"
+displayURL="https://github.com/aliloginmod"
+logoFile="aliloginmod.png"
+credits="Criado por Ali"
+authors="Ali"
+description="Um mod de login personalizado para Minecraft que adiciona funcionalidades de autenticação avançadas."
+
+[[dependencies.aliloginmod]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="SERVER"
+
+[[dependencies.aliloginmod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="SERVER"
