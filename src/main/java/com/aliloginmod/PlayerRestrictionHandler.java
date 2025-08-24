@@ -12,7 +12,6 @@ import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.CommandEvent;
 
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -69,9 +68,11 @@ public class PlayerRestrictionHandler {
             if (initialPos != null) {
                 Vec3 currentPos = player.position();
                 double distance = currentPos.distanceTo(initialPos);
-                if (distance > 0.1) {
-                    // Teleporta de volta para posição inicial
-                    player.teleportTo(player.serverLevel(), initialPos.x, initialPos.y, initialPos.z, player.getYRot(), player.getXRot());
+                if (distance > 0.01) { // Reduzir de 0.1 para 0.01
+                    // Teleporta imediatamente sem tolerância
+                    if (!currentPos.equals(initialPos)) {
+                        player.teleportTo(player.serverLevel(), initialPos.x, initialPos.y, initialPos.z, player.getYRot(), player.getXRot());
+                    }
                 }
             }
             
@@ -134,7 +135,7 @@ public class PlayerRestrictionHandler {
         String command = event.getParseResults().getReader().getString();
         
         // Permite comandos de login
-        if (command.startsWith("logar") || command.startsWith("registrar") || command.startsWith("logout")) {
+        if (command.startsWith("login") || command.startsWith("register") || command.startsWith("logar") || command.startsWith("registrar") || command.startsWith("logout")) {
             return;
         }
         
@@ -153,7 +154,7 @@ public class PlayerRestrictionHandler {
         String message = event.getMessage().getString();
         
         // Permite comandos de login
-        if (message.startsWith("/logar") || message.startsWith("/registrar") || message.startsWith("/logout")) {
+        if (message.startsWith("/login") || message.startsWith("/register") || message.startsWith("/logar") || message.startsWith("/registrar") || message.startsWith("/logout")) {
             return;
         }
         

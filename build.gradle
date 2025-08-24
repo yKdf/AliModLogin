@@ -53,7 +53,7 @@ dependencies {
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
     // Configura o diretório de saída do JAR para o servidor
-    destinationDirectory = file('C:\\Users\\aliss\\Desktop\\Servidor Forge 1.20.1\\mods')
+    destinationDirectory = file('C:\\Users\\Biel\\Downloads\\Servidor Forge 1.20.1\\Servidor Forge 1.20.1\\mods')
     
     manifest {
         attributes([

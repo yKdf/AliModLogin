@@ -83,7 +83,7 @@ public class MessageManager {
         // Mensagens baseadas no tempo decorrido
         switch (secondsElapsed) {
             case 30:
-                player.sendSystemMessage(Component.literal("§e⏰ Lembrete: Você ainda não fez login!"));
+                player.sendSystemMessage(Component.literal("§eLembrete: Você ainda não fez login!"));
                 if (isRegistered) {
                     player.sendSystemMessage(Component.literal("§7Use: §a/logar <sua_senha>"));
                 } else {

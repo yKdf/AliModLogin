@@ -18,14 +18,26 @@ public class Config {
             .comment("Número máximo de tentativas de login antes do kick (padrão: 5)")
             .defineInRange("maxLoginAttempts", 5, 1, 20);
     
+    private static final ForgeConfigSpec.BooleanValue ALLOW_CLIENT_BYPASS = BUILDER
+            .comment("Permite auto-login se o cliente tiver o mod e enviar handshake válido (padrão: false)")
+            .define("allowClientBypass", false); // ← Está desabilitado!
+
+    private static final ForgeConfigSpec.ConfigValue<String> SHARED_SECRET = BUILDER
+            .comment("Chave secreta compartilhada cliente/servidor para assinar o handshake (mantenha em segredo)")
+            .define("sharedSecret", ""); // ← Está vazio!
+    
     static final ForgeConfigSpec SPEC = BUILDER.build();
     
     public static int loginTimeout;
     public static int maxLoginAttempts;
+    public static boolean allowClientBypass;
+    public static String sharedSecret;
     
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
         loginTimeout = LOGIN_TIMEOUT.get();
         maxLoginAttempts = MAX_LOGIN_ATTEMPTS.get();
+        allowClientBypass = ALLOW_CLIENT_BYPASS.get();
+        sharedSecret = SHARED_SECRET.get();
     }
 }
